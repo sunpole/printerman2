@@ -26,3 +26,4 @@ footer {
     bottom: 0;
     width: 100%;
 }
+/* Стилизация окна ввода пароля */\ninput[type=\"password\"] {\n    width: 80%;\n    margin: 20px auto;\n    padding: 10px;\n    border: 2px solid #c2a73f;\n    border-radius: 5px;\n    display: block;\n}\nbutton {\n    background-color: #c2a73f;\n    color: black;\n    padding: 10px 20px;\n    border: none;\n    border-radius: 5px;\n    cursor: pointer;\n}\nbutton:hover {\n    background-color: #a07f2f;\n}
