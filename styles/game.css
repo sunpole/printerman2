@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background-color: #121212;
+    color: #00f;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f;
+    user-select: none;
+    overflow: hidden;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: #001f3f;
+    padding: 10px 0;
+}
+header nav ul li a {
+    color: #00f;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer {
+    text-align: center;
+    background-color: #001f3f;
+    color: #00f;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
