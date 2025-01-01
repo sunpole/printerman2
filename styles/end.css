@@ -9,7 +9,7 @@ body {
 header nav ul {
     display: flex;
     justify-content: space-around;
-    background-color: #ff0000;
+    background-color: #4b0000; /* Очень темно-красный цвет */
     padding: 10px 0;
 }
 header nav ul li a {
@@ -19,7 +19,7 @@ header nav ul li a {
 }
 footer {
     text-align: center;
-    background-color: #ff0000;
+    background-color: #4b0000; /* Очень темно-красный цвет */
     color: red;
     padding: 10px 0;
     position: absolute;
