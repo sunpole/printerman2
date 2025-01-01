@@ -4,7 +4,9 @@ body {
     color: yellow;
     font-family: 'Roboto', Arial, sans-serif;
     user-select: none;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header nav ul {
@@ -21,14 +23,19 @@ header nav ul li a {
 }
 
 main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     text-align: center;
 }
 
 #newGameButton {
     margin: 20px 0;
-    padding: 15px 25px;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     font-weight: bold;
     color: yellow;
     background-color: #ff8c00;
@@ -47,17 +54,19 @@ main {
 
 #characters {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    width: 90%;
+    margin: 0 auto;
     justify-items: center;
-    padding: 0 10px;
-    height: calc(100vh - 150px); /* Учитываем хедер, футер и кнопки */
-    overflow: hidden;
+    padding: 20px;
 }
 
 .character {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: var(--character-bg-color);
     color: white;
     padding: 10px;
@@ -65,27 +74,23 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 90%;
+    width: 100%;
+    max-width: 120px;
     height: 120px;
-}
-
-.character:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .character img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.character-text {
-    text-align: justify;
+.character p {
     font-size: 0.75rem;
-    line-height: 1.2;
+    margin: 5px 0;
 }
 
 footer {
@@ -93,7 +98,7 @@ footer {
     background-color: #ff8c00;
     color: yellow;
     padding: 10px 0;
-    position: relative; /* Изменено с absolute */
+    position: relative;
     width: 100%;
 }
 
@@ -126,7 +131,7 @@ footer {
 @media (max-width: 768px) {
     #characters {
         grid-template-columns: 1fr;
-        height: auto; /* Все 6 кнопок отображаются вертикально */
+        height: auto;
     }
 
     .character {
