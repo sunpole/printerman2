@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: #121212;
     color: yellow;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     user-select: none;
     overflow: hidden;
 }
@@ -27,50 +27,63 @@ main {
 
 #newGameButton {
     margin: 20px 0;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 25px;
+    font-size: 18px;
     font-weight: bold;
     color: yellow;
     background-color: #ff8c00;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 140, 0, 0.5);
 }
 
 #newGameButton:hover {
     background-color: #e67e00;
     transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
 }
 
 #characters {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
     margin-top: 20px;
+    justify-items: center;
 }
 
 .character {
-    background-color: #333;
-    color: yellow;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    background-color: var(--character-bg-color);
+    color: white;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 100%;
+    min-height: 150px;
 }
 
 .character:hover {
-    background-color: #444;
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
 .character img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.character-text {
+    text-align: justify;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 footer {
@@ -81,4 +94,47 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+/* Темные тона для фонов персонажей */
+.character:nth-child(1) {
+    --character-bg-color: #2e2e47;
+}
+
+.character:nth-child(2) {
+    --character-bg-color: #37474f;
+}
+
+.character:nth-child(3) {
+    --character-bg-color: #3e2723;
+}
+
+.character:nth-child(4) {
+    --character-bg-color: #1b5e20;
+}
+
+.character:nth-child(5) {
+    --character-bg-color: #004d40;
+}
+
+.character:nth-child(6) {
+    --character-bg-color: #263238;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    #characters {
+        grid-template-columns: 1fr;
+    }
+
+    .character {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .character img {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
 }
