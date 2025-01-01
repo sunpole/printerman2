@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стартовая страница</title>
+    <title>Выбор персонажа</title>
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
@@ -19,57 +19,51 @@
         </nav>
     </header>
     <main>
-        <h1>Добро пожаловать в игру!</h1>
-        <p>Нажмите "Игра" в меню, чтобы начать.</p>
-        <button id="newGameButton">Новая игра</button>
-        <div id="characters" style="display: none;">
-            <div class="character" data-name="Виктор">
+        <h1>Выберите персонажа</h1>
+        <div id="characters">
+            <div class="character" data-name="Виктор" data-description="Виктор — директор, воплощение опыта и пытливого ума" data-image="images/viktor-large.png">
                 <img src="images/viktor.png" alt="Виктор">
-                <p><strong>Виктор</strong> — директор, воплощение опыта и пытливого ума</p>
-                <p>Виктор — это величественная фигура компании, человек, чей острый взгляд замечает каждую мелочь. Его умение задавать точные вопросы и давать дельные замечания помогает не только исправить ошибки, но и вдохновить сотрудников. Под его руководством порядок и профессионализм становятся нормой.</p>
+                <p>Виктор</p>
             </div>
-            <div class="character" data-name="Александр">
+            <div class="character" data-name="Александр" data-description="Александр — мастер тактичного управления и неожиданных решений" data-image="images/alexander-large.png">
                 <img src="images/alexander.png" alt="Александр">
-                <p><strong>Александр</strong> — мастер тактичного управления и неожиданных решений</p>
-                <p>Александр — это старший управляющий, всегда собранный и воспитанный. Он часто берет инициативу, предлагая срочные решения для мелких, но значимых задач. Несмотря на недовольство коллег, его культурный подход и дипломатичность помогают сглаживать любые недоразумения, превращая вызовы в возможности.</p>
+                <p>Александр</p>
             </div>
-            <div class="character" data-name="Марина">
+            <div class="character" data-name="Марина" data-description="Марина — целеустремленная искусница печати" data-image="images/marina-large.png">
                 <img src="images/marina.png" alt="Марина">
-                <p><strong>Марина</strong> — целеустремленная искусница печати</p>
-                <p>Марина — невысокая, но невероятно стойкая девушка, чей опыт работы внушает уважение. Она словно живет в ритме станков: сосредоточенная, быстрая, она безошибочно выполняет свою работу, не отвлекаясь на чужие эмоции или обстоятельства. Для нее главное — результат, остальное второстепенно.</p>
+                <p>Марина</p>
             </div>
-            <div class="character" data-name="Арсений">
+            <div class="character" data-name="Арсений" data-description="Арсений — молодой энтузиаст с быстрыми руками и ясным умом" data-image="images/arseny-large.png">
                 <img src="images/arseny.png" alt="Арсений">
-                <p><strong>Арсений</strong> — молодой энтузиаст с быстрыми руками и ясным умом</p>
-                <p>Арсений — талантливый новичок, который, несмотря на юность, уже соперничает в скорости с опытными коллегами. Его тактичность и готовность к любой задаче делают его незаменимым. В свободное время он предпочитает стратегические шахматы, что лишь подчеркивает его увлеченность логикой и планированием.</p>
+                <p>Арсений</p>
             </div>
-            <div class="character" data-name="Палина">
+            <div class="character" data-name="Палина" data-description="Палина — молчаливая инноваторка с тягой к новизне" data-image="images/palina-large.png">
                 <img src="images/palina.png" alt="Палина">
-                <p><strong>Палина</strong> — молчаливая инноваторка с тягой к новизне</p>
-                <p>Юная Палина, дочь Виктора, лишь недавно начала свой путь, но уже проявляет невероятную ответственность. Занимаясь разработкой образцов, она вносит свежие идеи и стремится к совершенству. Несмотря на частые болезни и пристрастие к энергетикам, ее талант и трудолюбие заметны каждому.</p>
+                <p>Палина</p>
             </div>
-            <div class="character" data-name="Антон">
+            <div class="character" data-name="Антон" data-description="Антон — отзывчивый знаток с теплом в душе" data-image="images/anton-large.png">
                 <img src="images/anton.png" alt="Антон">
-                <p><strong>Антон</strong> — отзывчивый знаток с теплом в душе</p>
-                <p>Антон — самый возрастной из печатников, но его опыт и добродушие делают его душой команды. Он всегда готов помочь советом или делом, а его знания покрывают все аспекты работы. Хотя он не так быстр, как другие, его честность и добросовестность компенсируют любые недочеты, создавая атмосферу поддержки и доверия.</p>
+                <p>Антон</p>
             </div>
         </div>
     </main>
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <button id="closeModal" class="close-button">&times;</button>
+            <img id="modalImage" src="" alt="Изображение персонажа">
+            <h2 id="modalName"></h2>
+            <p id="modalDescription"></p>
+            <div class="carousel-controls">
+                <button id="prevCharacter">&larr; Предыдущий</button>
+                <button id="selectCharacter">Выбрать</button>
+                <button id="nextCharacter">Следующий &rarr;</button>
+            </div>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2025 Игра</p>
     </footer>
-    <script>
-        document.getElementById('newGameButton').addEventListener('click', () => {
-            const charactersDiv = document.getElementById('characters');
-            charactersDiv.style.display = charactersDiv.style.display === 'none' ? 'block' : 'none';
-        });
-
-        document.querySelectorAll('.character').forEach(div => {
-            div.addEventListener('click', () => {
-                alert(`Вы выбрали: ${div.dataset.name}`);
-                // Логика для перехода или обработки выбора героя
-            });
-        });
-    </script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
+
