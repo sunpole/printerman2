@@ -47,10 +47,12 @@ main {
 
 #characters {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     justify-items: center;
+    padding: 0 10px;
+    height: calc(100vh - 150px); /* Учитываем хедер, футер и кнопки */
+    overflow: hidden;
 }
 
 .character {
@@ -58,13 +60,13 @@ main {
     align-items: center;
     background-color: var(--character-bg-color);
     color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 100%;
-    min-height: 150px;
+    width: 90%;
+    height: 120px;
 }
 
 .character:hover {
@@ -73,17 +75,17 @@ main {
 }
 
 .character img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
     object-fit: cover;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .character-text {
     text-align: justify;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.75rem;
+    line-height: 1.2;
 }
 
 footer {
@@ -91,8 +93,7 @@ footer {
     background-color: #ff8c00;
     color: yellow;
     padding: 10px 0;
-    position: absolute;
-    bottom: 0;
+    position: relative; /* Изменено с absolute */
     width: 100%;
 }
 
@@ -125,12 +126,14 @@ footer {
 @media (max-width: 768px) {
     #characters {
         grid-template-columns: 1fr;
+        height: auto; /* Все 6 кнопок отображаются вертикально */
     }
 
     .character {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        height: auto;
     }
 
     .character img {
