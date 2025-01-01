@@ -1,19 +1,16 @@
 <!-- Скрипт navigate.js -->
-let isOnDebugPage = false;
+let isOnDebugPage = window.location.pathname.endsWith("debug.html");
 
 const navigateToDebug = (refreshOnly = false) => {
-    if (refreshOnly && isOnDebugPage) {
+    if (isOnDebugPage) {
         location.reload();
         return;
     }
 
-    if (!isOnDebugPage) {
-        const password = prompt("Введите пароль для доступа к странице отладки:");
-        if (password === "0000") {
-            isOnDebugPage = true;
-            window.location.href = "debug.html";
-        } else {
-            alert("Неверный пароль!");
-        }
+    const password = prompt("Введите пароль для доступа к странице отладки:");
+    if (password === "0000") {
+        window.location.href = "debug.html";
+    } else {
+        alert("Неверный пароль!");
     }
 };
