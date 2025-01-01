@@ -1,39 +1,45 @@
-body {
-    margin: 0;
+/* Стили для модального окна */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #121212;
     color: yellow;
-    font-family: 'Roboto', Arial, sans-serif;
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: space-around;
-    background-color: #ff8c00;
-    padding: 10px 0;
-}
-
-header nav ul li a {
-    color: yellow;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
-    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
 }
 
-#newGameButton {
-    margin: 20px 0;
+.modal.active {
+    display: block;
+}
+
+.modal img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.modal .description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.modal .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modal .controls button {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -42,107 +48,43 @@ main {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(255, 140, 0, 0.5);
 }
 
-#newGameButton:hover {
+.modal .controls button:hover {
     background-color: #e67e00;
-    transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
 }
 
-#characters {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    width: 90%;
-    margin: 0 auto;
-    justify-items: center;
-    padding: 20px;
-}
-
-.character {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: var(--character-bg-color);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
-    max-width: 120px;
-    height: 120px;
-    text-align: center;
-}
-
-.character img {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.character p {
-    font-size: 0.2rem;
-    margin: 5px 0;
-}
-
-footer {
-    text-align: center;
-    background-color: #ff8c00;
+.modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
     color: yellow;
-    padding: 10px 0;
-    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.modal .close-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Затемнение фона при открытом модальном окне */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none;
 }
 
-/* Темные тона для фонов персонажей */
-.character:nth-child(1) {
-    --character-bg-color: #2e2e47;
-}
-
-.character:nth-child(2) {
-    --character-bg-color: #37474f;
-}
-
-.character:nth-child(3) {
-    --character-bg-color: #3e2723;
-}
-
-.character:nth-child(4) {
-    --character-bg-color: #1b5e20;
-}
-
-.character:nth-child(5) {
-    --character-bg-color: #004d40;
-}
-
-.character:nth-child(6) {
-    --character-bg-color: #263238;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    #characters {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-
-    .character {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        height: auto;
-    }
-
-    .character img {
-        margin-bottom: 10px;
-        margin-right: 0;
-    }
+.overlay.active {
+    display: block;
 }
