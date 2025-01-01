@@ -1,45 +1,42 @@
-/* Стили для модального окна */
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Основные стили страницы */
+body {
+    margin: 0;
     background-color: #121212;
     color: yellow;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    display: none;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-}
-
-.modal.active {
-    display: block;
-}
-
-.modal img {
-    display: block;
-    margin: 0 auto 20px;
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.modal .description {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.modal .controls {
+    font-family: 'Roboto', Arial, sans-serif;
+    user-select: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.modal .controls button {
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ff8c00;
+    padding: 10px 0;
+}
+
+header nav ul li a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Кнопка новой игры */
+#newGameButton {
+    margin: 20px 0;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -48,33 +45,85 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(255, 140, 0, 0.5);
 }
 
-.modal .controls button:hover {
+#newGameButton:hover {
     background-color: #e67e00;
+    transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
 }
 
-.modal .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: yellow;
+/* Сетка персонажей */
+#characters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    justify-items: center;
+    padding: 20px;
+}
+
+.character {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--character-bg-color);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    text-align: center;
 }
 
-.modal .close-btn:hover {
-    transform: scale(1.2);
+.character img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
-/* Затемнение фона при открытом модальном окне */
+footer {
+    text-align: center;
+    background-color: #ff8c00;
+    color: yellow;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    color: yellow;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    max-width: 80%;
+    text-align: center;
+}
+
+.modal.active {
+    display: block;
+}
+
 .overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,9 +131,85 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 999;
-    display: none;
 }
 
 .overlay.active {
     display: block;
+}
+
+.modal img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.modal .controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: yellow;
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.modal button:hover {
+    background-color: #e67e00;
+    transform: scale(1.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: yellow;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Темные тона для персонажей */
+.character:nth-child(1) {
+    --character-bg-color: #2e2e47;
+}
+
+.character:nth-child(2) {
+    --character-bg-color: #37474f;
+}
+
+.character:nth-child(3) {
+    --character-bg-color: #3e2723;
+}
+
+.character:nth-child(4) {
+    --character-bg-color: #1b5e20;
+}
+
+.character:nth-child(5) {
+    --character-bg-color: #004d40;
+}
+
+.character:nth-child(6) {
+    --character-bg-color: #263238;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    #characters {
+        grid-template-columns: 1fr;
+    }
+
+    .character {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
