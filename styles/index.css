@@ -6,17 +6,73 @@ body {
     user-select: none;
     overflow: hidden;
 }
+
 header nav ul {
     display: flex;
     justify-content: space-around;
     background-color: #ff8c00;
     padding: 10px 0;
 }
+
 header nav ul li a {
     color: yellow;
     text-decoration: none;
     font-weight: bold;
 }
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+#newGameButton {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: yellow;
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#newGameButton:hover {
+    background-color: #e67e00;
+    transform: scale(1.1);
+}
+
+#characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.character {
+    background-color: #333;
+    color: yellow;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.character:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.character img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 footer {
     text-align: center;
     background-color: #ff8c00;
